@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Age calculator app</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="input-container">
+        <div class="label-input-con">
+          <label>DAY</label>
+          <input value="20" id="input-day" type="number" placeholder="DD" />
+        </div>
+
+        <div class="label-input-con">
+          <label>MONTH</label>
+          <input value="06" id="input-month" type="number" placeholder="MM" />
+        </div>
+
+        <div class="label-input-con">
+          <label>YEAR</label>
+          <input
+            value="1997"
+            id="input-year"
+            type="number"
+            placeholder="YYYY"
+          />
+        </div>
+      </div>
+      <div class="line-con">
+        <hr />
+        <div>
+          <button id="btn" class="btn">
+            <img class="arrow" src="assets/images/icon-arrow.svg" />
+          </button>
+        </div>
+      </div>
+      <div>
+        <div class="output-wrapper">
+          <div class="output-con">
+            <span id="output-year" class="text number">- -</span>
+            <span class="text">years</span>
+          </div>
+          <div class="output-con">
+            <span id="output-month" class="text number">- -</span>
+            <span class="text">months</span>
+          </div>
+          <div class="output-con">
+            <span id="output-day" class="text number">- -</span>
+            <span class="text">days</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

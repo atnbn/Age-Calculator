@@ -1,0 +1,174 @@
+:root {
+    --purple: hsl(259, 100%, 65%);
+    --lightred: hsl(0, 100%, 67%);
+    --white: hsl(0, 0%, 100%);
+    --lightgrey: hsl(0, 0%, 86%);
+    --smokeygrey: hsl(0, 1%, 44%);
+    --offblack: hsl(0, 0%, 8%);
+}
+
+@font-face {
+    font-family: Poppins;
+    src: url('assets/fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: PoppinsBold;
+    src: url('assets/fonts/Poppins-ExtraBold.ttf');
+}
+
+
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Poppins';
+
+}
+
+textarea:focus, input:focus {
+    outline: none;
+}
+
+label {
+    font-weight: 400i;
+}
+
+input {
+    font-size: 32px;
+    width: 120px;
+    border-radius: 10px;
+    border: 1px solid var(--lightgrey);
+    padding: 8px;
+    padding-left: 5px;
+}
+
+input::placeholder {
+    font-weight: 700;
+}
+
+input:focus {
+    border: 1px solid var(--purple);
+}
+
+.main-wrapper {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    height: 450px;
+    background-color: white;
+    border-radius: 5px 5px 150px 5px;
+    padding: 30px;
+    gap: 15px;
+
+}
+
+.input-container {
+    display: flex;
+    gap: 20px;
+}
+
+.label-input-con {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+
+.line-con {
+    display: flex;
+    align-items: center;
+}
+
+hr {
+    flex-grow: 1;
+    height: 0px;
+    border: 1px solid var(--lightgrey);
+}
+
+.btn {
+    background: none;
+    border: none;
+    border-radius: 100px;
+}
+
+.arrow {
+    background-color: var(--purple);
+    border-radius: 100px;
+    padding: 20px;
+    height: 37px;
+
+}
+
+.arrow:hover {
+    background-color: var(--offblack);
+    cursor: pointer;
+}
+
+.output-con {}
+
+.number {
+    color: var(--purple);
+
+}
+
+.text {
+    font-size: 62px;
+    font-weight: 800;
+    font-family: PoppinsBold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
