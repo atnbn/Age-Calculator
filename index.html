@@ -23,22 +23,22 @@
       <div class="input-container">
         <div class="label-input-con">
           <label>DAY</label>
-          <input value="20" id="input-day" type="number" placeholder="DD" />
+          <input id="input-day" type="number" placeholder="DD" />
+          <span class="error-color error-text hidden">Must be a valid day</span>
         </div>
 
         <div class="label-input-con">
           <label>MONTH</label>
-          <input value="06" id="input-month" type="number" placeholder="MM" />
+          <input id="input-month" type="number" placeholder="MM" />
+          <span class="error-color error-text hidden"
+            >Must be a valid Month</span
+          >
         </div>
 
         <div class="label-input-con">
           <label>YEAR</label>
-          <input
-            value="1997"
-            id="input-year"
-            type="number"
-            placeholder="YYYY"
-          />
+          <input id="input-year" type="number" placeholder="YYYY" />
+          <span class="error-color error-text hidden">Must be in the past</span>
         </div>
       </div>
       <div class="line-con">

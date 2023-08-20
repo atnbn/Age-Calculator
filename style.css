@@ -77,7 +77,21 @@ input:focus {
     gap: 5px;
 }
 
+.error-color {
+    color: var(--lightred);
+}
 
+.error-border {
+    color: var(--lightred)
+}
+
+.error-text {
+    font-size: 14px;
+}
+
+.hidden {
+    display: none;
+}
 
 .line-con {
     display: flex;
