@@ -15,7 +15,6 @@ const getDaysInMonth = (month, year) => {
     return monthDays[month];
 };
 
-console.log();
 const takeDate = () => {
     const today = new Date();
     let day = today.getUTCDate() - parseInt(dayInput.value);
@@ -44,42 +43,54 @@ const takeDate = () => {
     monthOutput.innerHTML = month;
     yearOutput.innerHTML = year;
 };
-const checkValidator = (currentMonth) => {
+const checkValidator = () => {
     const dayValue = Number(dayInput.value);
     const monthValue = Number(monthInput.value);
     const yearValue = Number(yearInput.value);
     const currentDate = new Date();
     const enteredDate = new Date(yearValue, monthValue - 1, dayValue);
 
+    removeError(dayInput);
+    removeError(monthInput);
+    removeError(yearInput);
+
+    let hasErrors = false;
     // CHecks for empty input
     if (dayValue === 0) {
-
         // eine funktion dafür schreiben
-        dayInput.classList.remove('hidden')
-        let errorMessage = document.createElement("SPAN");
-        errorMessage.innerHTML = 'This Field is required'
-        dayInput.insertAdjacentElement('afterend', errorMessage)
+        addError(dayInput, 'This field is required')
+        hasErrors = true;
     }
     if (monthValue === 0) {
-        console.log('This Field is required');
+        addError(monthInput, 'This field is required')
+        hasErrors = true;
 
     }
     if (yearValue === 0) {
-        console.log('This Field is required');
+        addError(yearInput, 'This field is required')
+        hasErrors = true;
     }
 
     // Checks if Input are in an Correct Format
     if (dayValue > getDaysInMonth(monthValue, yearValue)) {
-        console.log('Must be a valid date');
+        addError(dayInput, 'Must be a valid date');
+        hasErrors = true;
     }
 
     if (monthValue > 12) {
-        console.log('Must be a valid date');
+        addError(monthInput, 'Must be a valid date');
+        hasErrors = true;
     }
 
     // checks if the date is in the past
     if (enteredDate > currentDate) {
-        console.log('Date must be in the past');
+        addError(yearInput, 'Date must be in the past');
+        hasErrors = true;
+    }
+
+    if (!hasErrors) {
+        takeDate();
+        removeError()
     }
 
 };
@@ -87,3 +98,43 @@ const checkValidator = (currentMonth) => {
 arrowBtn.addEventListener('click', () => {
     checkValidator();
 });
+
+document.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        checkValidator();
+    }
+})
+
+
+const addError = (inputType, errorText) => {
+    const existingErrorMessage = inputType.nextElementSibling;
+    const label = inputType.previousElementSibling;
+
+    // Check if an error message already exists and has the error-color class
+    if (existingErrorMessage && existingErrorMessage.classList.contains('error-color')) {
+        return; // If an error message already exists, do nothing
+    }
+
+    let errorMessage = document.createElement('span');
+    errorMessage.classList.add('error-color');
+    inputType.classList.add('error-border');
+    label.classList.add('error-color');
+    errorMessage.innerHTML = `${errorText}`;
+    inputType.insertAdjacentElement('afterend', errorMessage);
+
+};
+
+
+const removeError = (inputType) => {
+    const existingErrorMessage = inputType.nextElementSibling;
+    const label = inputType.previousElementSibling;
+
+    // Check if an error message exists and has the error-color class
+    if (existingErrorMessage && existingErrorMessage.classList.contains('error-color')) {
+        existingErrorMessage.remove(); // Remove the error message
+
+        // Remove error-related classes
+        inputType.classList.remove('error-border');
+        label.classList.remove('error-color');
+    }
+};
